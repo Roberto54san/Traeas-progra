@@ -1,0 +1,33 @@
+def contar_lineas_palabras(archivo):
+    try:
+        with open(archivo, 'r') as file:
+            contenido = file.read()
+
+            # Contar líneas
+            lineas = contenido.count('\n') + 1
+
+            # Contar palabras
+            palabras = len(contenido.split())
+
+            return lineas, palabras
+    except FileNotFoundError:
+        return None
+
+if __name__ == "__main__":
+    print("----- Scanner de Archivo -----")
+    ubicacion_archivo = input("Ingrese la ubicación del archivo: ")
+
+    resultado = contar_lineas_palabras(ubicacion_archivo)
+
+    if resultado is not None:
+        lineas, palabras = resultado
+        print(f"\nEl archivo tiene {lineas} líneas y {palabras} palabras.")
+    else:
+        print("\nNo se pudo abrir el archivo. Verifique la ubicación y vuelva a intentarlo.")
+
+    # Integrantes del equipo
+    print("\n----- Integrantes del Equipo -----")
+    print("- Nombre del Integrante 1")
+    print("- Nombre del Integrante 2")
+    print("- Nombre del Integrante 3")
+    # Agrega más integrantes si es necesario
